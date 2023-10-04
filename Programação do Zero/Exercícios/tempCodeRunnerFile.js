@@ -1,0 +1,1 @@
+  saldoVitorias = vitorias -  derrotas;
