@@ -7,9 +7,38 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/styles/reset.css">
+  <link rel="stylesheet" href="./src/styles/styles.css">
 </head>
 <body>
-  
+  <div id="menu">
+    <div class="menu-item" id="menu-time">
+      <h2>Tempo</h2>
+      <h3 id="timer">0</h3>
+    </div>
+    <div class="menu-item" id="menu-score">
+      <h2>Pontuação</h2>
+      <h3 id="score">0</h3>
+    </div>
+    <div class="menu-item"id="menu-lives">
+      <h2>Vidas</h2>      
+      <span>      
+        <img id="player-icon" src="../DetonaRalph/src/images/player.png">
+        <h3 id="lives">x<span id="lives-left">3</span></h3>
+      </span>
+    </div>
+  </div>
+  <div id="game">
+    <div class="square" id="1"></div>
+    <div class="square" id="2"></div>
+    <div class="square" id="3"></div>
+    <div class="square" id="4"></div>
+    <div class="square" id="5"></div>
+    <div class="square" id="6"></div>
+    <div class="square" id="7"></div>
+    <div class="square" id="8"></div>
+    <div class="square" id="9"></div>
+  </div>
 
   <script defer src="./src/scripts/engine.js"></script>
 </body>
