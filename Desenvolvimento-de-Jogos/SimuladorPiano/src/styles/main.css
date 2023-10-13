@@ -136,6 +136,21 @@ header .column label {
   align-content: center;
 }
 
+.white.active {
+  box-shadow: inset -5px 5px 20px rgba(0,0,0,0.2);
+  background: linear-gradient(to bottom #fff 0%, #eee 100%);
+}
+
+.black.active {
+  box-shadow: inset -5px 5px 20px rgba(255,255,255,0.2);
+  background: linear-gradient(to bottom #000, #434343);
+
+}
+
+.hide span {
+  display: none;
+}
+
 @media only screen and (max-height: 400px) {
   .white {
     height: 40vh;
