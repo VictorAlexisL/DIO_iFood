@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/styles/main.css">
+    <link rel="stylesheet" href="./src/styles/reset.css">
+    <link rel="stylesheet" href="./src/styles/containers_and_frames.css">
+    <link rel="stylesheet" href="./src/styles/buttons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>Yu-Gi-Oh Jo-ken-po Edition</title>
+</head>
+<body>
+    <div id="bg-video">
+        <video id="video" autoplay loop muted>
+            <source src="./src/assets/video/yugi.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div id="container">
+        <div id="container-left">
+            <div id ="score-box">
+                Win : <span id="wins">0</span> | Lose : <span id="losses">0</span>
+            </div>
+            <div id ="menu-avatar">
+                <img src="" alt="" id="card-image">
+            </div>
+            <div id="card-details">
+                <p id="card-name"></p>
+                <p id="card-type"></p>
+            </div>
+        </div>
+        <div id="container-right"></div>
+    </div>
+    <script src="/src/scripts/engine.js" defer></script>
+</body>
+</html>
