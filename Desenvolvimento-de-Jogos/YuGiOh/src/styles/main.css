@@ -114,3 +114,7 @@
 .card:hover {
   transform: scale(1.2);
 }
+
+.card-infield {
+  border: solid 1px #fff;
+}
