@@ -1,3 +1,11 @@
+body {
+  cursor: url("../assets/cursor/yugicursor.png"), auto;
+}
+
+.card:hover, button:hover, a:hover {
+  cursor: url(../assets/cursor/yamiyugicursorGLOW.png), auto;
+}
+
 .bg-video {
   position: absolute;
   z-index: -2;
@@ -103,9 +111,20 @@
   justify-content: space-around;
 }
 
-.card-infield {
-  height: 11.2rem;
+.card-box__container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
+
+.card-infield {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 .card {
   transition: transform 0.2s;

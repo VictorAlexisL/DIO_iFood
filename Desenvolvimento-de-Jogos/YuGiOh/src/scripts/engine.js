@@ -69,9 +69,11 @@ function checkDuelResults(playerCardId, computerCardId) {
   let playerCard = cardData[playerCardId];
   if(playerCard.WinOf.includes(computerCardId)) {
     duelResults = "Ganhou";
+    playAudio("win");
     state.score.playerScore++;
   } else if (playerCard.LoseOf.includes(computerCardId)){
     duelResults = "Perdeu";
+    playAudio("lose");
     state.score.computerScore++;
   }
 
@@ -95,6 +97,9 @@ async function setCardsField(cardId) {
 
   state.fieldCards.player.src = cardData[cardId].img;
   state.fieldCards.computer.src = cardData[computerCardId].img;
+
+  state.fieldCards.player.style.display = "inline";
+  state.fieldCards.computer.style.display = "inline";
 
   console.log(computerCardId);
 
@@ -150,13 +155,23 @@ async function resetDuel() {
   state.actions.button.style.display = "none";
   state.fieldCards.player.style.display = "none";
   state.fieldCards.computer.style.display = "none";
+  state.cardSprites.name.innerText = "Escolha uma carta";
+  state.cardSprites.type.innerText = "É hora do duelo!";
 
   init();
+}
+
+function playAudio(status) {
+  const audio = new Audio(`./src/assets/audios/${status}.wav`);
+  audio.play();
 }
 
 function init() {
   drawCards(5, "player-cards");
   drawCards(5, "computer-cards");
+
+  const bgm = document.getElementById("bgm");
+  bgm.play();
 };
 
 init();
