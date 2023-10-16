@@ -63,6 +63,48 @@ function getRandomCardId() {
   return cardData[randomIndex].id;
 };
 
+function checkDuelResults(playerCardId, computerCardId) {
+  let duelResults = "Empate";
+
+  let playerCard = cardData[playerCardId];
+  if(playerCard.WinOf.includes(computerCardId)) {
+    duelResults = "Ganhou";
+    state.score.playerScore++;
+  } else if (playerCard.LoseOf.includes(computerCardId)){
+    duelResults = "Perdeu";
+    state.score.computerScore++;
+  }
+
+  return duelResults;
+}
+
+
+function drawButton(text) {
+  state.actions.button.innerText = text;
+  state.actions.button.style.display = "block";
+};
+
+async function updateScore() {
+  state.score.scoreBox.innerText = `Win: ${state.score.playerScore} | Lose: ${state.score.computerScore}`
+};
+
+async function setCardsField(cardId) {
+  await removeAllCardsImages();
+
+  let computerCardId = getRandomCardId();
+
+  state.fieldCards.player.src = cardData[cardId].img;
+  state.fieldCards.computer.src = cardData[computerCardId].img;
+
+  console.log(computerCardId);
+
+  let duelResults = checkDuelResults(cardId, computerCardId);
+
+  await updateScore();
+  drawButton(duelResults);
+};
+
+
 function createCardImage(randomIdCard, fieldSide) {
   const cardImage = document.createElement("img");
   cardImage.setAttribute("height", "100");
@@ -93,10 +135,28 @@ async function drawSelectCard(index){
   state.cardSprites.type.innerText = "Attribute : " + cardData[index].type;
 }
 
+async function removeAllCardsImages() {
+  let cards = document.getElementById("computer-cards");
+  let imgElements = cards.querySelectorAll("img");
+  imgElements.forEach((img) => img.remove());
+
+  cards = document.getElementById("player-cards");
+  imgElements = cards.querySelectorAll("img");
+  imgElements.forEach((img) => img.remove());
+}
+
+async function resetDuel() {
+  state.cardSprites.avatar.src = "";
+  state.actions.button.style.display = "none";
+  state.fieldCards.player.style.display = "none";
+  state.fieldCards.computer.style.display = "none";
+
+  init();
+}
+
 function init() {
   drawCards(5, "player-cards");
   drawCards(5, "computer-cards");
-
 };
 
 init();
